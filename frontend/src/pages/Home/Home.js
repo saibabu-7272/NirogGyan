@@ -7,7 +7,7 @@ import './Home.css';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 
 const Home = () => {
-  const { doctors, loading, error, searchQuery, setSearchQuery, fetchDoctors, searchDoctors } = useAppContext();
+  const { doctors, filteredDoctors, loading, error, searchTerm, fetchDoctors, searchDoctors } = useAppContext();
   const [searchInput, setSearchInput] = useState('');
   
   useEffect(() => {
@@ -56,24 +56,24 @@ const Home = () => {
           </div>
         ) : (
           <>
-            {searchQuery && (
+            {searchTerm && (
               <div className="search-results-info">
                 <p>
-                  {doctors.length === 0 
-                    ? `No results found for "${searchQuery}"` 
-                    : `Showing ${doctors.length} result(s) for "${searchQuery}"`}
+                  {filteredDoctors.length === 0 
+                    ? `No results found for "${searchTerm}"` 
+                    : `Showing ${filteredDoctors.length} result(s) for "${searchTerm}"`}
                 </p>
-                <button onClick={() => {setSearchQuery(''); fetchDoctors();}} className="clear-search-btn">
+                <button onClick={() => {searchDoctors(''); fetchDoctors();}} className="clear-search-btn">
                   Clear Search
                 </button>
               </div>
             )}
             
-            {doctors.length === 0 && !searchQuery ? (
+            {doctors.length === 0 && !searchTerm ? (
               <p className="no-doctors-message">No doctors available at the moment.</p>
             ) : (
               <div className="doctors-grid">
-                {doctors.map(doctor => (
+                {(searchTerm ? filteredDoctors : doctors).map(doctor => (
                   <DoctorCard key={doctor.id} doctor={doctor} />
                 ))}
               </div>

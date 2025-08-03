@@ -20,8 +20,8 @@ const Footer = () => {
         
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p><span>📞</span> 1800-123-4567</p>
-          <p><span>✉️</span> support@niroggyan.com</p>
+          <p><span>📞</span> 6302326140</p>
+          <p><span>✉️</span> saibabu61242@gmail.com</p>
           <p><span>🏢</span> 123 Health Avenue, Medical District</p>
         </div>
       </div>

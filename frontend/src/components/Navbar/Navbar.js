@@ -20,14 +20,12 @@ const Navbar = () => {
           {userEmail ? (
             <>
               <Link to="/my-appointments" className="nav-link">My Appointments</Link>
-              <button onClick={clearUserData} className="nav-link nav-button">
-                Logout
-              </button>
+              
             </>
           ) : null}
           
           <a href="tel:+1800-123-4567" className="nav-link contact-link">
-            <span className="phone-icon">📞</span> 1800-123-4567
+            <span className="phone-icon">📞</span> 6302326140
           </a>
         </div>
       </div>
